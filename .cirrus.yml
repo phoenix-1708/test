@@ -10,7 +10,7 @@ task:
     timeout_in: 120m
     container:
       image: inok2341/anu:latest
-      cpu: 10
+      cpu: 8
       memory: 32G      
 
     mengunduh_ccache_background_script:
