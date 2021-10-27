@@ -6,12 +6,12 @@ env:
     # credentials: "ENCRYPTED[a36b42522be46a7b58ceb973ce08b60006c0b8bd732373d4eedd4a04788a66d3d41427b44ae18a1bdb6d3273e4855d90]"
 
 task:
-    name: evox
+    name: evolutionx
     timeout_in: 120m
     container:
       image: inok2341/anu:latest
       cpu: 8
-      memory: 24G      
+      memory: 32G      
 
     mengunduh_ccache_background_script:
       - git config --global user.name "phoenix-1708"
