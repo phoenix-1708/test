@@ -18,15 +18,10 @@ task:
       - git config --global user.email "harikumar1708@gmail.com"
       - git config --global color.ui true
       - sudo apt-get update -y
-
       - sudo apt-get upgrade -y
-
       - sudo apt-get install -y openjdk-11-jdk
-
       - sudo apt-get install -y bc bison build-essential ccache curl flex g++-multilib gcc-multilib git gnupg gperf imagemagick lib32ncurses5-dev lib32readline-dev lib32z1-dev liblz4-tool libncurses5 libncurses5-dev libsdl1.2-dev libssl-dev libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc zip zlib1g-dev
-
       - sudo apt-get install -y wget
-
       - sudo apt-get install -y jq
       #- git clone https://github.com/akhilnarang/scripts bscripts && cd bscripts && bash setup/android_build_env.sh && cd ..
       - mkdir -p ~/.config/rclone
