@@ -45,12 +45,12 @@ task:
     chmod_script:
       - sudo chmod +x *
     memantau_background_script:
-      - ./memantau
+      - bash memantau
     mengsinkronisasi_script:
-      - ./sinkronisasi
+      - bash sinkronisasi
 #    mengumpulkan_ccache_script:
 #      - ./mengumpulkan_ccache
     membangun_akhir_script:
-      - ./membangun_akhir
+      - bash membangun_akhir
     mengunggah_script:
-      - ./mengunggah
+      - bash mengunggah
