@@ -1,0 +1,20 @@
+#!/bin/bash
+
+cd /tmp/rom
+
+repo init --depth=1 -u https://github.com/Evolution-X/manifest -b elle -g default,-device,-mips,-darwin,-notdefault
+#repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8
+
+# DT/VT/KT
+# git clone --depth=1 https://github.com/phoenix-1708/local_manifest.git -b arrow-11 .repo/local_manifests
+
+# TOOLCHAIN
+#git clone --depth=1 https://github.com/kdrag0n/proton-clang --single-branch -b master prebuilts/clang/host/linux-x86/clang-proton
+
+# Remove stuff
+#rm -rf device/generic && rm -rf prebuilts/clang/host/linux-x86/clang-proton
+#rm -rf device/xiaomi/sweet && rm -rf kernel/xiaomi/sweet && rm -rf vendor/xiaomi/sweet
+
+#REPO SYNC
+repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8
+

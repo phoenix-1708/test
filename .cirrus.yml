@@ -1,0 +1,59 @@
+env:
+    CIRRUS_CLONE_DEPTH: 1
+    token_telegram: "ENCRYPTED[d3ec072ce47f7df09d87839acda149195f66e51a8e865643e92a09d765c217f1b79b76590a7e40c763a398451801fba0]"
+    id_telegram: "ENCRYPTED[1592b702cd85962e8ef580d61590dfa2a951b599edbe431245727deed709c61d6a1bef16bfd7072d5e3a16df3ffc1eb2]"
+    rclone_config: "ENCRYPTED[ace096f4adf51659c3859970c0a6c4db796b579382ebf7705ba65181d1ca386af504de434f8b96cd53dccfdaa9c89b35]"
+    # credentials: "ENCRYPTED[a36b42522be46a7b58ceb973ce08b60006c0b8bd732373d4eedd4a04788a66d3d41427b44ae18a1bdb6d3273e4855d90]"
+
+task:
+    name: evox
+    timeout_in: 120m
+    container:
+      image: inok2341/anu:latest
+      cpu: 8
+      memory: 32G      
+
+    mengunduh_ccache_background_script:
+      - git config --global user.name "phoenix-1708"
+      - git config --global user.email "harikumar1708@gmail.com"
+      - git config --global color.ui true
+      - sudo apt-get update -y
+
+      - sudo apt-get upgrade -y
+
+      - sudo apt-get install -y openjdk-11-jdk
+
+      - sudo apt-get install -y bc bison build-essential ccache curl flex g++-multilib gcc-multilib git gnupg gperf imagemagick lib32ncurses5-dev lib32readline-dev lib32z1-dev liblz4-tool libncurses5 libncurses5-dev libsdl1.2-dev libssl-dev libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc zip zlib1g-dev
+
+      - sudo apt-get install -y wget
+
+      - sudo apt-get install -y jq
+      #- git clone https://github.com/akhilnarang/scripts bscripts && cd bscripts && bash setup/android_build_env.sh && cd ..
+      - mkdir -p ~/.config/rclone
+      - echo "$rclone_config" > ~/.config/rclone/rclone.conf
+      - df -h && free -h && nproc && cat /etc/os* && env
+      - mkdir -p /tmp/ccache
+      - rclone copy remote:ccache/ci2/ccache.tar.gz /tmp -P
+      - cd /tmp
+      - time tar xf ccache.tar.gz
+      - ls /tmp
+      - ls /tmp/ccache
+      - rm -rf ccache.tar.gz
+      - mkdir -p /tmp/rom
+      - cd /tmp/rom
+      - export CCACHE_DIR=/tmp/ccache
+      - export CCACHE_EXEC=$(which ccache)
+      - export USE_CCACHE=1
+      - ccache -M 50G
+      - ccache -o compression=true
+      - ccache -z
+    memantau_background_script:
+      - ./memantau
+    mengsinkronisasi_script:
+      - ./sinkronisasi
+#    mengumpulkan_ccache_script:
+#      - ./mengumpulkan_ccache
+    membangun_akhir_script:
+      - ./membangun_akhir
+    mengunggah_script:
+      - ./mengunggah
