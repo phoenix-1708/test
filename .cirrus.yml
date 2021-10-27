@@ -11,7 +11,7 @@ task:
     container:
       image: inok2341/anu:latest
       cpu: 8
-      memory: 32G      
+      memory: 24G      
 
     mengunduh_ccache_background_script:
       - git config --global user.name "phoenix-1708"
