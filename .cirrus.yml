@@ -42,8 +42,8 @@ task:
       - ccache -M 50G
       - ccache -o compression=true
       - ccache -z
-    chmod_script:
-      - sudo chmod +X *
+#    chmod_script:
+ #     - sudo chmod +X *
     memantau_background_script:
       - bash memantau.sh
     mengsinkronisasi_script:
