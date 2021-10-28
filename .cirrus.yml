@@ -43,14 +43,14 @@ task:
       - ccache -o compression=true
       - ccache -z
     chmod_script:
-      - sudo chmod +x *
+      - sudo chmod +X *
     memantau_background_script:
-      - bash memantau
+      - bash memantau.sh
     mengsinkronisasi_script:
-      - bash sinkronisasi
+      - bash sinkronisasi.sh
 #    mengumpulkan_ccache_script:
 #      - ./mengumpulkan_ccache
     membangun_akhir_script:
-      - bash membangun_akhir
+      - bash membangun_akhir.sh
     mengunggah_script:
-      - bash mengunggah
+      - bash mengunggah.sh
