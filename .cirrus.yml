@@ -9,7 +9,7 @@ task:
     name: pixelexp
     timeout_in: 120m
     container:
-      image: apon77/aosp:latest
+      image: apon77/aosp:cirrus
       cpu: 8
       memory: 32G      
 
